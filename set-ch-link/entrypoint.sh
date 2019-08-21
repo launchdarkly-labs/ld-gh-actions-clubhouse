@@ -9,6 +9,8 @@ title=$(jq -r .pull_request.title "$GITHUB_EVENT_PATH")
 title=${title//$'\r'/} # Remove /r, which confuses jq in ok.sh
 
 echo "Current PR title is '${title}'"
+echo "Github ref is '$GITHUB_REF'"
+echo "Bash version is ${BASH_VERSION}"
 
 pattern='.*\bch\([[:digit:]]\+\)\b.*'
 ticket_from_title=$(expr "$title" : "$pattern")
