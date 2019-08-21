@@ -10,6 +10,10 @@ title=${title//$'\r'/} # Remove /r, which confuses jq in ok.sh
 
 echo "Current PR title is '${title}'"
 echo "Github ref is '$GITHUB_REF'"
+echo "Github cat ref is '$GITHUB_BASE REF'"
+echo "Everything:"
+cat "$GITHUB_EVENT_PATH"
+
 echo "Bash version is ${BASH_VERSION}"
 
 pattern='.*\bch\([[:digit:]]\+\)\b.*'
